@@ -7,20 +7,20 @@ const modalRoot = document.querySelector('#modal-root');
 
 export class Modal extends React.Component {
   componentDidMount() {
-    window.addEventListener('keydown', this.onEscPress);
+    window.addEventListener('keydown', this.handleModalClose);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.onEscPress);
+    window.removeEventListener('keydown', this.handleModalClose);
   }
 
-  onEscPress = event => {
+  handleModalClose = event => {
     if (event.code === 'Escape') {
       this.props.closeModal();
     }
   };
 
-  onCloseModal = event => {
+  handleBackdropClick = event => {
     if (event.target === event.currentTarget) {
       this.props.closeModal();
     }
@@ -28,7 +28,7 @@ export class Modal extends React.Component {
 
   render() {
     return createPortal(
-      <div className={css.Overlay} onClick={this.onCloseModal}>
+      <div className={css.Overlay} onClick={this.handleBackdropClick}>
         <div className={css.Modal}>
           <img src={this.props.largeImageURL} alt="" />
         </div>

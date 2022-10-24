@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import { SearchBar } from './Searchbar/Searchbar';
-import { ImageGallery } from './ImageGallery/ImageGallery';
-import { Button } from './Button/Button';
-import { Loader } from './Loader/Loader';
-import { Modal } from './Modal/Modal';
+import { SearchBar } from './Searchbar';
+import { ImageGallery } from './ImageGallery';
+import { Button } from './Button';
+import { Loader } from './Loader';
+import { Modal } from './Modal';
 import { fetchImages } from 'services/images-api';
 
 export default class App extends Component {
