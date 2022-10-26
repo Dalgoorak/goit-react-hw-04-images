@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 
 import { SearchBar } from './Searchbar';
@@ -16,19 +15,15 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [originalImageURL, setOriginalImageURL] = useState(null);
-  // eslint-disable-next-line no-unused-vars
+
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (searchQuery) {
       fetchImg();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery]);
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.searchQuery !== this.state.searchQuery) {
-  //     this.fetchImg();
-  //   }
-  // }
 
   const onChangeQuery = query => {
     setImages([]);
@@ -47,11 +42,6 @@ export const App = () => {
       .then(hits => {
         setImages(prevState => [...prevState, ...hits]);
         setCurrentPage(prevState => prevState + 1);
-
-        // this.setState(prevState => ({
-        //   images: [...prevState.images, ...hits],
-        //   currentPage: prevState.currentPage + 1,
-        // }));
       })
       .catch(error => setError(error))
       .finally(() => setIsLoading(false));
