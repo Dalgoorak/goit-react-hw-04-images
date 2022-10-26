@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-use-before-define */
 import { useEffect, useState } from 'react';
 
 import { SearchBar } from './Searchbar';
